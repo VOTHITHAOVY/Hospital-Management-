@@ -1,0 +1,68 @@
+database/
+├── 📂 schema/          → ĐỊNH NGHĨA CẤU TRÚC DATABASE
+│   ├── 00_init_database.sql              → KHỞI TẠO DATABASE & THIẾT LẬP MÔI TRƯỜNG
+│   ├── 01_create_tables_users.sql        → BẢNG NGƯỜI DÙNG & PHÂN QUYỀN
+│   ├── 02_create_tables_doctors.sql      → BẢNG BÁC SĨ & CHUYÊN KHOA
+│   ├── 03_create_tables_patients.sql     → BẢNG BỆNH NHÂN & THÔNG TIN Y TẾ
+│   ├── 04_create_tables_appointments.sql → BẢNG LỊCH HẸN & TRẠNG THÁI
+│   ├── 05_create_tables_medical_records.sql → BẢNG HỒ SƠ BỆNH ÁN ĐIỆN TỬ
+│   ├── 06_create_tables_prescriptions.sql → BẢNG ĐƠN THUỐC & CHI TIẾT
+│   ├── 07_create_tables_medicines.sql    → BẢNG THUỐC & QUẢN LÝ KHO
+│   ├── 08_create_tables_rooms_beds.sql   → BẢNG PHÒNG & GIƯỜNG BỆNH
+│   ├── 09_create_tables_invoices_payments.sql → BẢNG HÓA ĐƠN & THANH TOÁN
+│   ├── 10_create_tables_reviews_feedback.sql → BẢNG ĐÁNH GIÁ & PHẢN HỒI
+│   ├── 11_create_tables_notifications.sql → BẢNG THÔNG BÁO HỆ THỐNG
+│   ├── 12_create_tables_system.sql       → BẢNG CẤU HÌNH & NHẬT KÝ
+│   ├── 13_create_indexes.sql             → TẠO INDEX TĂNG TỐC TRUY VẤN
+│   ├── 14_create_foreign_keys.sql        → RÀNG BUỘC KHÓA NGOẠI
+│   └── 15_create_triggers.sql            → TRIGGER CƠ BẢN
+├── 📂 seed_data/       → DỮ LIỆU MẪU KHỞI TẠO
+│   ├── 01_seed_roles.sql                 → VAI TRÒ HỆ THỐNG (Admin, Doctor, Patient...)
+│   ├── 02_seed_admin_user.sql            → TÀI KHOẢN QUẢN TRỊ VIÊN ĐẦU TIÊN
+│   ├── 03_seed_specializations.sql       → CHUYÊN KHOA (Tim mạch, Nội tiết, Nhi...)
+│   ├── 04_seed_departments.sql           → PHÒNG BAN (Cấp cứu, Nội trú, Ngoại trú...)
+│   ├── 05_seed_medicine_categories.sql   → DANH MỤC THUỐC (Kháng sinh, Giảm đau...)
+│   ├── 06_seed_test_types.sql            → LOẠI XÉT NGHIỆM (Máu, Nước tiểu, X-quang...)
+│   ├── 07_seed_appointment_statuses.sql  → TRẠNG THÁI LỊCH HẸN (Pending, Confirmed...)
+│   ├── 08_seed_services.sql              → DỊCH VỤ KHÁM CHỮA BỆNH
+│   ├── 09_seed_sample_doctors.sql        → DỮ LIỆU BÁC SĨ MẪU
+│   ├── 10_seed_sample_medicines.sql      → DỮ LIỆU THUỐC MẪU
+│   └── 11_seed_system_settings.sql       → CẤU HÌNH HỆ THỐNG MẶC ĐỊNH
+├── 📂 stored_procedures/ → THỦ TỤC LƯU TRỮ XỬ LÝ NGHIỆP VỤ
+│   ├── sp_calculate_invoice_total.sql    → TÍNH TỔNG HÓA ĐƠN TỰ ĐỘNG
+│   ├── sp_update_medicine_stock.sql      → CẬP NHẬT TỒN KHO THUỐC
+│   ├── sp_check_bed_availability.sql     → KIỂM TRA GIƯỜNG BỆNH TRỐNG
+│   ├── sp_generate_revenue_report.sql    → TẠO BÁO CÁO DOANH THU
+│   ├── sp_get_doctor_schedule.sql        → LẤY LỊCH LÀM VIỆC BÁC SĨ
+│   ├── sp_check_appointment_conflicts.sql → KIỂM TRA XUNG ĐỘT LỊCH HẸN
+│   ├── sp_get_patient_medical_history.sql → LẤY LỊCH SỬ BỆNH ÁN BỆNH NHÂN
+│   ├── sp_calculate_doctor_statistics.sql → THỐNG KÊ HIỆU SUẤT BÁC SĨ
+│   └── sp_cleanup_expired_data.sql       → DỌN DỮ LIỆU HẾT HẠN
+├── 📂 views/           → KHUNG NHÌNH DỮ LIỆU TỔNG HỢP
+│   ├── view_patient_full_info.sql        → THÔNG TIN ĐẦY ĐỦ BỆNH NHÂN
+│   ├── view_doctor_with_specialization.sql → BÁC SĨ KÈM CHUYÊN KHOA
+│   ├── view_today_appointments.sql       → LỊCH HẸN HÔM NAY
+│   ├── view_medicine_stock_status.sql    → TRẠNG THÁI TỒN KHO THUỐC
+│   ├── view_revenue_summary.sql          → TỔNG HỢP DOANH THU
+│   ├── view_bed_availability.sql         → TÌNH TRẠNG GIƯỜNG BỆNH
+│   ├── view_doctor_schedule_detail.sql   → CHI TIẾT LỊCH LÀM VIỆC
+│   ├── view_patient_financial_summary.sql → TỔNG QUAN TÀI CHÍNH BỆNH NHÂN
+│   └── view_medicine_expiry_alert.sql    → CẢNH BÁO THUỐC SẮP HẾT HẠN
+├── 📂 functions/       → HÀM TÙY CHỈNH TÍNH TOÁN
+│   ├── fn_calculate_age.sql              → TÍNH TUỔI TỪ NGÀY SINH
+│   ├── fn_get_available_beds_count.sql   → ĐẾM SỐ GIƯỜNG TRỐNG
+│   └── fn_check_medicine_expiry.sql      → KIỂM TRA THUỐC HẾT HẠN
+├── 📂 triggers/        → BỘ KÍCH HOẠT TỰ ĐỘNG
+│   ├── trg_update_bed_status_on_admission.sql → CẬP NHẬT TRẠNG THÁI GIƯỜNG KHI NHẬP VIỆN
+│   ├── trg_log_user_changes.sql          → GHI NHẬT KÝ THAY ĐỔI NGƯỜI DÙNG
+│   ├── trg_update_medicine_stock_on_dispense.sql → CẬP NHẬT KHO KHI PHÁT THUỐC
+│   ├── trg_send_notification_on_appointment.sql → GỬI THÔNG BÁO KHI ĐẶT LỊCH
+│   ├── trg_prevent_duplicate_appointments.sql → NGĂN ĐẶT LỊCH TRÙNG
+│   └── trg_update_medicine_expiry_status.sql → TỰ ĐỘNG CẬP NHẬT TRẠNG THÁI HẾT HẠN
+├── 📂 migrations/      → QUẢN LÝ PHIÊN BẢN DATABASE
+│   └── migration_log.md                  → LỊCH SỬ THAY ĐỔI SCHEMA
+├── 📂 backup/          → SAO LƯU & PHỤC HỒI DỮ LIỆU
+│   ├── backup_daily.sh                   → KỊCH BẢN SAO LƯU HÀNG NGÀY
+│   ├── backup_weekly.sh                  → KỊCH BẢN SAO LƯU HÀNG TUẦN
+│   └── restore_procedure.md              → HƯỚNG DẪN KHÔI PHỤC DỮ LIỆU
+└── 📄 README.md        → HƯỚNG DẪN SETUP & SỬ DỤNG
